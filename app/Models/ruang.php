@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class ruang extends Model
 {
     use HasFactory;
+    protected $table = 'ruangs';
+    protected $fillable = [
+        'id_koleksi',
+        'alamat_museum',
+        'nama_kepala_museum',
+        'logo',
+    ];
 }

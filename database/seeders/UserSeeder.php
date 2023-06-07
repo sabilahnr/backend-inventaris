@@ -13,38 +13,44 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $admin_mkn = User::create([
-            'name' => 'admin_mkn',
-            'email' => 'adminmkn@role.test',
+        
+        $admin = User::create([
+            'name' => 'Admin 1',
+            'email' => 'admin@role.test',
             'password' => bcrypt('12345678')
         ]);
 
-        $admin_mkn->assignRole('admin_mkn');
-
-        $admin_mrp = User::create([
-            'name' => 'admin_mrp',
-            'email' => 'adminmrp@role.test',
+        $admin->assignRole('admin');
+       
+        $admin = User::create([
+            'name' => 'Admin 2',
+            'email' => 'adminsamuel@role.test',
             'password' => bcrypt('12345678')
         ]);
 
-        $admin_mrp->assignRole('admin_mrp');
+        $admin->assignRole('admin');
 
         $superadmin = User::create([
-            'name' => 'superadmin',
+            'name' => 'Super Admin 1',
             'email' => 'superadmin@role.test',
+            'password' => bcrypt('12345678')
+        ]);
+        $superadmin->assignRole('superadmin');
+
+        $superadmin = User::create([
+            'name' => 'Super Admin 2',
+            'email' => 'superadminudin@role.test',
             'password' => bcrypt('12345678')
         ]);
 
         $superadmin->assignRole('superadmin');
 
         $kepalauptmuseum = User::create([
-            'name' => 'kepalauptmuseum',
+            'name' => 'Kepala UPT Museum',
             'email' => 'kepalauptmuseum@role.test',
             'password' => bcrypt('12345678')
         ]);
 
         $kepalauptmuseum->assignRole('kepalauptmuseum');
-
-       
     }
 }
