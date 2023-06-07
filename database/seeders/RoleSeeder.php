@@ -16,18 +16,26 @@ class RoleSeeder extends Seeder
     public function run()
     {
         Role::create([
-            'name' => 'superadmin',
-            'guard_name' => 'web'
-        ]);
-
-        Role::create([
             'name' => 'admin',
             'guard_name' => 'web'
         ]);
 
         Role::create([
+            'name' => 'superadmin',
+            'guard_name' => 'web'
+        ]);
+
+        Role::create([
+<<<<<<< HEAD
+            'name' => 'admin',
+            'guard_name' => 'web'
+        ]);
+
+        Role::create([
+=======
+>>>>>>> adff2959e7046a395e516035004fa14830984c45
             'name' => 'kepalauptmuseum',
             'guard_name' => 'web'
         ]);
     }
-} 
+}
