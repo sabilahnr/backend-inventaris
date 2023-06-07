@@ -1,13 +1,18 @@
 <?php
 
 use App\Http\Controllers\API\BukuController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/add-buku', [BukuController::class, 'store_buku']);
+Route::post('/login', [AuthController::class, 'login']);
 
-Route::post('/add-koleksi', [BukuController::class, 'store_keris']);
-Route::post('/kol-kartu_inv', [BukuController::class, 'store_keris']);
+
+Route::get('/get-koleksi', [KoleksiController::class, 'index']);
+Route::post('/add-koleksi', [KoleksiController::class, 'store_keris']);
+
+Route::post('/kol-kartu_inv', [KartuInvController::class, 'store_keris']);
 Route::post('/add-kartu_registrasi', [BukuController::class, 'store_keris']);
 Route::post('/add-kartu_simpan', [BukuController::class, 'store_keris']);
 
