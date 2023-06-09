@@ -26,14 +26,6 @@ class RoleSeeder extends Seeder
         ]);
 
         Role::create([
-<<<<<<< HEAD
-            'name' => 'admin',
-            'guard_name' => 'web'
-        ]);
-
-        Role::create([
-=======
->>>>>>> adff2959e7046a395e516035004fa14830984c45
             'name' => 'kepalauptmuseum',
             'guard_name' => 'web'
         ]);

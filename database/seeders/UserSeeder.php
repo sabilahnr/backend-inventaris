@@ -13,11 +13,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-<<<<<<< HEAD
-        $admin = User::create([
-            'name' => 'admin',
-            'email' => 'admin@role.test',
-=======
         
         $admin = User::create([
             'name' => 'Admin 1',
@@ -30,7 +25,6 @@ class UserSeeder extends Seeder
         $admin = User::create([
             'name' => 'Admin 2',
             'email' => 'adminsamuel@role.test',
->>>>>>> adff2959e7046a395e516035004fa14830984c45
             'password' => bcrypt('12345678')
         ]);
 
