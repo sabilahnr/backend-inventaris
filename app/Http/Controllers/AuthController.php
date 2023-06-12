@@ -13,7 +13,7 @@ use Illuminate\Validation\Rules\Password;
 class AuthController extends Controller
 {
     public function login(Request $request)
-    {
+    { 
         $user = User::where('email',$request->email)->first();
         if($user)
         {
@@ -36,7 +36,7 @@ class AuthController extends Controller
         if(Auth::check())
         {
             $user = Auth::user();
-            $user-> getRoleNames();
+            $user->getRoleNames();
             $user->access_token = $user->createToken('upt-museum')->plainTextToken;
 
             return response()->json([
@@ -57,6 +57,7 @@ class AuthController extends Controller
     }
 
     public function me(){
+        
         $user = User::where('id' , Auth::id())->first();
         $user->getRoleNames();
 
@@ -64,11 +65,27 @@ class AuthController extends Controller
         return response()->json([
                 'status' => 200,
                 'user' => $user,
-            // 'token' => "masuk",
+                'token' => Auth::id(),
         ]);
 
 
     }
+    public function show(){
+        
+        $user = User::where('id' , Auth::id())->first();
+        $user->getRoleNames();
+
+        // return $this->JsonResponse(200, 'Data user sukses didapat', $user);
+        return response()->json([
+                'status' => 200,
+                'user' => $user,
+                'token' => Auth::id(),
+        ]);
+
+
+    }
+
+
 
     public function show_admin()
     {
@@ -105,7 +122,6 @@ class AuthController extends Controller
             $user = new User();
             $user->name = ucwords(strtolower($request->nama));
             $user->email = strtolower($request->email);
-            $user->id_muesum = $request->id_museum;
             $user->password = Hash::make($request->password);
             $save = $user->save();
             $user->syncRoles('admin');
