@@ -2,7 +2,13 @@
 
 use App\Http\Controllers\API\BukuController;
 use App\Http\Controllers\API\KartuInvController;
+use App\Http\Controllers\API\KartuRegistrasiController;
+use App\Http\Controllers\API\KartuSimpanController;
 use App\Http\Controllers\API\KartuMuseumController;
+use App\Http\Controllers\API\KoleksiController;
+use App\Http\Controllers\API\KualifikasiController;
+use App\Http\Controllers\API\MuseumController;
+use App\Http\Controllers\API\RuangController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Http\Request;
@@ -34,5 +40,4 @@ Route::post('/add-kualifikasi', [KualifikasiController::class, 'store_kualifikas
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 return $request->user();
 });
-
 Route::post('/login', [AuthController::class, 'login']); 
