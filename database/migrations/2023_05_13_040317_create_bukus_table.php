@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('bukus', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_museum')->references('id')->on('museum')->constrained();
             $table->string('kode_buku');
             $table->string('pengarang');
             $table->string('penerbit');
