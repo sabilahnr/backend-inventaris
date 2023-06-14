@@ -19,9 +19,13 @@ Route::get('/show_admin', [AuthController::class, 'show_admin']);
 
 Route::middleware('auth:sanctum')->group(function () {
 Route::get('me', [AuthController::class, 'me'])->name('auth.me');
-Route::get('pengunjung', [PengunjungController::class, 'show']);
+
 
 Route::post('/add-buku', [BukuController::class, 'store_buku']);
+Route::delete('/delete-buku', [BukuController::class, 'destroy']);
+Route::get('/show-buku', [BukuController::class, 'show']);
+Route::post('/edit-buku', [BukuController::class, 'edit_show']);
+
 Route::post('/login', [AuthController::class, 'login']);
 
 

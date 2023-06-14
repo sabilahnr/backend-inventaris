@@ -15,12 +15,10 @@ return new class extends Migration
     {
         Schema::create('museums', function (Blueprint $table) {
             $table->id();
-            $table->string('id_koleksi')->nullable();
-            $table->foreignId('id_museum')->references('id')->on('museum')->constrained();
             $table->string('nama_museum');
             $table->string('alamat_museum');
-            $table->string('nama_kepala_museum');
-            $table->string('logo');
+            $table->string('nama_kepala_museum')->nullable();
+            $table->string('logo')->nullable();
             $table->timestamps();
         });
     }

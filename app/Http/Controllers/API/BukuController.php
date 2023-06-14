@@ -10,6 +10,9 @@ class BukuController extends Controller
 {
     public function store_buku(Request $request)
     {
+
+        $judul_buku = buku::where('id_museum',$request->id_museum)->where('judul_buku',$request->kategori)->first();
+        
         if($judul_buku !== null)
             {
                 return response()->json([
@@ -38,34 +41,70 @@ class BukuController extends Controller
 
         }
 
-    public function destroy($id)
-    {
-        $files = Buku::find($id);
-        if($files)
+        public function destroy($id_buku)
         {
-            $files->delete();
-            return response()->json([
-                'status'=> 200,
-                'message'=>'Berhasil Delete File',
-            ]);
+            $buku = buku::find($id_buku);
+    
+           
+            if($buku)
+            {
+                $buku->delete();
+                return response()->json([
+                    'status'=> 200,
+                    'message'=>'kategori Berhasil Dihapus',
+                ]);
+            }
+            else
+            {
+                return response()->json([
+                    'status'=> 404,
+                    'message' => 'Tidak ada ID kategori',
+                ]);
+            }
         }
-        else
+    
+        public function edit_show($id_buku) 
         {
-            return response()->json([
-                'status'=> 404,
-                'message' => 'No Data ID Found',
-            ]);
+            $buku = buku::find($id_buku);
+            
+            if($buku)
+            {
+                return response()->json([
+                    'status'=> 200,
+                    'buku' => $buku,
+                ]);
+            }
+            else
+            {
+                return response()->json([
+                    'status'=> 404,
+                    'message' => 'No kategori Id Found',
+                ]);
+            }
+    
         }
-    }
 
-    public function show_kategori()
+    public function show_buku()
     {
-        $kategori = buku::all();
+        $buku = buku::all();
         return response()->json([
             'status'=> 200,
-            'kategori'=>$kategori,
+            'buku'=>$buku,
         ]);
     }
 
+    public function update(Request $request,$id_buku)
+    {
+        
+        $buku = buku::find($id_buku);
+
+        $buku->nama_kategori = $request->input('buku');
+        $buku->update();
+
+        return response()->json([
+            'status'=> 200,
+            'message'=>'Berhasil Update kategori'  ,
+        ]);
+    }
 
 }
