@@ -18,8 +18,8 @@ class bukuSeeder extends Seeder
         Modelsbuku::create([
             'id' => 1,
             'id_museum' => 2,
-            'judul_buku' => 'Ensiklopedia keris',
             'kode_buku' => 1,
+            'judul_buku' => 'Ensiklopedia keris',
             'pengarang' => 'Bambang H',
             'penerbit' => 'Gramedia',
             'tahun_terbit' => '2004',
