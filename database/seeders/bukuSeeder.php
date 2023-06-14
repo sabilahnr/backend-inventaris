@@ -18,6 +18,7 @@ class bukuSeeder extends Seeder
         Modelsbuku::create([
             'id' => 1,
             'id_museum' => 2,
+            'judul_buku' => 'Ensiklopedia keris',
             'kode_buku' => 1,
             'pengarang' => 'Bambang H',
             'penerbit' => 'Gramedia',
@@ -31,6 +32,7 @@ class bukuSeeder extends Seeder
             'id' => 2,
             'id_museum' => 2,
             'kode_buku' => 2,
+            'judul_buku' => 'Keris nusantara',
             'pengarang' => 'Bambang H',
             'penerbit' => 'Gramedia',
             'tahun_terbit' => '2004',
