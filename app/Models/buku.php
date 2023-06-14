@@ -18,5 +18,6 @@ class buku extends Model
         'bahasa',
         'halaman',
         'ket',
+        'foto_buku',
     ];
 }

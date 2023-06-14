@@ -19,11 +19,14 @@ Route::get('/show_admin', [AuthController::class, 'show_admin']);
 
 Route::get('me', [AuthController::class, 'me'])->name('auth.me');
 
-
+//buku
 Route::get('/show-buku', [BukuController::class, 'show_buku']);
 Route::post('/add-buku', [BukuController::class, 'store_buku']);
 Route::delete('/delete-buku', [BukuController::class, 'destroy']);
 Route::post('/edit-buku', [BukuController::class, 'edit_show']);
+
+//museum
+Route::get('/show-museum', [MuseumController::class, 'show_museum']);
 
 Route::post('/login', [AuthController::class, 'login']);
 

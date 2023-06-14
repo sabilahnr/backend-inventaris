@@ -22,6 +22,17 @@ class MuseumController extends Controller
             'message'=> 'Kualifikasi sukses ditambahkan',
         ]);
 
+        
 
+
+    }
+
+    public function show_museum()
+    {
+        $museum = museum::all();
+        return response()->json([
+            'status'=> 200,
+            'museum'=>$museum,
+        ]);
     }
 }

@@ -20,6 +20,6 @@ class kartu_registrasi extends Model
         'ket',
         'harga',
         'uraian_singkat',
-        'foto',
+        'foto_regis',
     ];
 }

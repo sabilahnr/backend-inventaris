@@ -27,8 +27,7 @@ return new class extends Migration
             $table->string('dibawa_ke');
             $table->string('untuk_keperluan');
             $table->string('petugas_nama');
-            $table->string('petugas_paraf');
-            $table->string('foto');
+            $table->string('foto_simpan')->nullable();
             $table->timestamps();
         });
     }
