@@ -84,6 +84,27 @@ class BukuController extends Controller
     
         }
 
+        public function show_detail($id_buku) 
+        {
+            $buku = buku::find($id_buku);
+            
+            if($buku)
+            {
+                return response()->json([
+                    'status'=> 200,
+                    'buku' => $buku,
+                ]);
+            }
+            else
+            {
+                return response()->json([
+                    'status'=> 404,
+                    'message' => 'No kategori Id Found',
+                ]);
+            }
+    
+        }
+
     public function show_buku()
     {
         $buku = buku::all();

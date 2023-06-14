@@ -17,17 +17,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/show_admin', [AuthController::class, 'show_admin']);
 
-Route::middleware('auth:sanctum')->group(function () {
 Route::get('me', [AuthController::class, 'me'])->name('auth.me');
 
 
+Route::get('/show-buku', [BukuController::class, 'show_buku']);
 Route::post('/add-buku', [BukuController::class, 'store_buku']);
 Route::delete('/delete-buku', [BukuController::class, 'destroy']);
-Route::get('/show-buku', [BukuController::class, 'show']);
 Route::post('/edit-buku', [BukuController::class, 'edit_show']);
 
 Route::post('/login', [AuthController::class, 'login']);
 
+
+Route::get('/show_detail_buku/{id_buku}', [BukuController::class, 'show_detail']);
 
 Route::get('/get-koleksi', [KoleksiController::class, 'index']);
 Route::post('/add-koleksi', [KoleksiController::class, 'store_keris']);
@@ -39,6 +40,8 @@ Route::post('/add-kartu_simpan', [KartuSimpanController::class, 'store_keris']);
 Route::post('/add-ruang', [RuangController::class, 'store_ruang']);
 Route::post('/add-museum', [MuseumController::class, 'store_museum']);
 Route::post('/add-kualifikasi', [KualifikasiController::class, 'store_kualifikasi']);
+Route::middleware('auth:sanctum')->group(function () {
+
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
