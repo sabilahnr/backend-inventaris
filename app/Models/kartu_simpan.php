@@ -24,6 +24,6 @@ class kartu_simpan extends Model
         'untuk_keperluan',
         'petugas_nama',
         'petugas_paraf',
-        'foto',
+        'foto_simpan',
     ];
 }

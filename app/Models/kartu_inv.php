@@ -42,6 +42,6 @@ class kartu_inv extends Model
         'sumber_literatur',
         'sumber_narasumber',
         'ket_lain',
-        'foto',
+        'foto_inv',
     ];
 }

@@ -22,10 +22,10 @@ return new class extends Migration
             $table->string('cara_perolehan');
             $table->string('ukuran');
             $table->string('tgl_tahun_masuk');
-            $table->string('ket');
+            $table->string('ket')->nullable();
             $table->string('harga');
-            $table->string('uraian_singkat');
-            $table->string('foto');
+            $table->string('uraian_singkat')->nullable();
+            $table->string('foto_regis')->nullable();
             $table->timestamps();
         });
     }
