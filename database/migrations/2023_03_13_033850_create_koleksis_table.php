@@ -36,7 +36,7 @@ return new class extends Migration
             $table->string('lebar_ganja');
             $table->string('tinggi');
             $table->string('berat');
-            $table->string('karat');
+            $table->string('karat')->nullable();
             $table->string('tebal');
             $table->string('bahan');
             $table->string('warna');

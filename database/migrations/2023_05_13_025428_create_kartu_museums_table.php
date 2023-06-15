@@ -30,10 +30,10 @@ return new class extends Migration
             $table->string('ukuran_ti');
             $table->string('ukuran_br');
             $table->string('tempat_simpan');
-            $table->string('no_inv');
-            $table->string('no_reg');
-            $table->string('no_foto');
-            $table->string('no_slide'); 
+            $table->string('no_inv')->nullable();
+            $table->string('no_reg')->nullable();
+            $table->string('no_foto')->nullable();
+            $table->string('no_slide')->nullable();
             $table->timestamps();
         });
     }
