@@ -40,5 +40,44 @@ class bukuSeeder extends Seeder
             'halaman' => '630 hal',
             'ket' => 'stok lama'
         ]);
+
+        Modelsbuku::create([
+            'id' => 2,
+            'id_museum' => 2,
+            'kode_buku' => 3,
+            'judul_buku' => 'Keris Jawa',
+            'pengarang' => 'MT Arifin',
+            'penerbit' => 'Gramedia',
+            'tahun_terbit' => '2004',
+            'bahasa' => 'Indonesia',
+            'halaman' => '630 hal',
+            'ket' => 'stok lama'
+        ]);
+
+        Modelsbuku::create([
+            'id' => 2,
+            'id_museum' => 2,
+            'kode_buku' => 4,
+            'judul_buku' => 'Keris Jawa Tengah',
+            'pengarang' => 'Hadi',
+            'penerbit' => 'Gramedia',
+            'tahun_terbit' => '2008',
+            'bahasa' => 'Indonesia',
+            'halaman' => '630 hal',
+            'ket' => 'stok lama'
+        ]);
+
+        Modelsbuku::create([
+            'id' => 2,
+            'id_museum' => 2,
+            'kode_buku' => 5,
+            'judul_buku' => 'Budaya Nasional',
+            'pengarang' => 'Ardi',
+            'penerbit' => 'Gramedia',
+            'tahun_terbit' => '2010',
+            'bahasa' => 'Indonesia',
+            'halaman' => '630 hal',
+            'ket' => 'stok lama'
+        ]);
     }
 }
