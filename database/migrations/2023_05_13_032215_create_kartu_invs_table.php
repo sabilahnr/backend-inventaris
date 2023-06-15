@@ -47,7 +47,7 @@ return new class extends Migration
             $table->string('sumber_literatur')->nullable();
             $table->string('sumber_narasumber')->nullable();
             $table->string('ket_lain')->nullable();
-            $table->string('foto');
+            $table->string('foto_inv')->nullable();
             $table->timestamps();
         });
     }
