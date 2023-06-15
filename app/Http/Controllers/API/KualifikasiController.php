@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\kualifikasi;
 
-class KartuSimpanController extends Controller
+class KualifikasiController extends Controller
 {
     public function store_kualifikasi(Request $request)
     {
@@ -20,5 +20,14 @@ class KartuSimpanController extends Controller
         ]);
 
 
+    }
+
+    public function show_kualifikasi()
+    {
+        $kualifikasi = kualifikasi::all();
+        return response()->json([
+            'status'=> 200,
+            'kualifikasi'=>$kualifikasi,
+        ]);
     }
 }

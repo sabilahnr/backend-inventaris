@@ -28,6 +28,9 @@ Route::post('/edit-buku', [BukuController::class, 'edit_show']);
 //museum
 Route::get('/show-museum', [MuseumController::class, 'show_museum']);
 
+//kualifikasi
+Route::get('/show-kualifikasi', [KualifikasiController::class, 'show_kualifikasi']);
+
 Route::post('/login', [AuthController::class, 'login']);
 
 
