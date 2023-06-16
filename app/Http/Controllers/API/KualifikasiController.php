@@ -31,14 +31,14 @@ class KualifikasiController extends Controller
         ]);
     }
 
-    public function destroy($kualifikasi)
+    public function destroy($id_kualifikasi)
         {
-            $buku = kualifikasi::find($kualifikasi);
+            $kualifikasi = kualifikasi::find($id_kualifikasi);
     
            
             if($kualifikasi)
             {
-                $buku->delete();
+                $kualifikasi->delete();
                 return response()->json([
                     'status'=> 200,
                     'message'=>'kualifikasi Berhasil Dihapus',
@@ -74,9 +74,9 @@ class KualifikasiController extends Controller
     
         }
 
-        public function show_detail($kualifikasi) 
+        public function show_detail($id_kualifikasi) 
         {
-            $kualifikasi = kualifikasi::find($kualifikasi);
+            $kualifikasi = kualifikasi::find($id_kualifikasi);
             
             if($kualifikasi)
             {
@@ -104,10 +104,10 @@ class KualifikasiController extends Controller
         ]);
     }
 
-    public function update(Request $request,$kualifikasi)
+    public function update(Request $request,$id_kualifikasi)
     {
         
-        $kualifikasi = kualifikasi::find($kualifikasi);
+        $kualifikasi = kualifikasi::find($id_kualifikasi);
         $kualifikasi->kualifikasi = $request->input('kualifikasi');
         $kualifikasi->update();
 

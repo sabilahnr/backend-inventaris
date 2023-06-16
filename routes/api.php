@@ -30,6 +30,10 @@ Route::get('/show-museum', [MuseumController::class, 'show_museum']);
 
 //kualifikasi
 Route::get('/show-kualifikasi', [KualifikasiController::class, 'show_kualifikasi']);
+Route::post('/add-kualifikasi', [KualifikasiController::class, 'store_kualifikasi']);
+Route::delete('/delete-kualifikasi', [KualifikasiController::class, 'destroy']);
+Route::post('/edit-kualifikasi', [KualifikasiController::class, 'edit_show']);
+Route::get('/show_detail_kualifikasi/{id_kualifikasi}', [KualifikasiController::class, 'show_detail']);
 
 Route::post('/login', [AuthController::class, 'login']);
 
@@ -43,7 +47,13 @@ Route::post('/kol-kartu_inv', [KartuInvController::class, 'store_keris']);
 Route::post('/add-kartu_registrasi', [KartuRegistrasiController::class, 'store_keris']);
 Route::post('/add-kartu_simpan', [KartuSimpanController::class, 'store_keris']);
 
+//ruang
 Route::post('/add-ruang', [RuangController::class, 'store_ruang']);
+Route::get('/show-ruang', [RuangController::class, 'show_ruang']);
+Route::delete('/delete-ruang', [RuangController::class, 'destroy']);
+Route::post('/edit-ruang', [RuangController::class, 'edit_show']);
+Route::get('/show_detail_ruang/{id_ruang}', [RuangController::class, 'show_detail']);
+
 Route::post('/add-museum', [MuseumController::class, 'store_museum']);
 Route::post('/add-kualifikasi', [KualifikasiController::class, 'store_kualifikasi']);
 Route::middleware('auth:sanctum')->group(function () {
