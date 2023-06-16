@@ -15,11 +15,13 @@ return new class extends Migration
     {
         Schema::create('koleksis', function (Blueprint $table) {
             $table->id();
-            $table->string('id_koleksi')->nullable();
+            //$table->string('id_koleksi')->nullable();
+            $table->foreignId('id_museum')->references('id')->on('museums')->constrained();
+            $table->foreignId('id_ruang')->references('id')->on('ruangs')->constrained();
+            $table->foreignId('id_kualifikasi')->references('id')->on('kualifikasis')->constrained();
             $table->string('nama_koleksi');
             $table->string('dhapur');
             $table->string('klasifikasi');
-            $table->string('ruang');
             $table->string('kode_jenis');
             $table->string('tanggal_regis');
             $table->string('desk_benda');

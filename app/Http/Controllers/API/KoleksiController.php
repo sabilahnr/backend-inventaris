@@ -15,7 +15,6 @@ class KoleksiController extends Controller
         $koleksi->nama_koleksi = $request->input('nama_koleksi');
         $koleksi->dhapur = $request->input('dhapur');
         $koleksi->klasifikasi = $request->input('klasifikasi');
-        $koleksi->ruang = $request->input('ruang');
         $koleksi->kode_jenis = $request->input('kode_jenis');
         $koleksi->tanggal_regis = $request->input('tanggal_regis');
         $koleksi->desk_benda = $request->input('desk_benda');

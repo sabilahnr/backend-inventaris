@@ -50,7 +50,70 @@ class BukuController extends Controller
             'status'=> 200,
             'message'=> 'Kartu Inventaris sukses ditambahkan',
         ]);
+    }
 
+    public function show()
+    {
+        $kartu_inv = kartu_inv::all();
+        return response()->json([
+            'status' => 200,
+            'kartu_inv' => $kartu_inv,
+        ]);
+    }
 
+    public function destroy($id_inv)
+    {
+        $kartu_inv = kartu_inv::find($id_inv);
+
+       
+        if($kartu_inv)
+        {
+            $kartu_inv->delete();
+            return response()->json([
+                'status'=> 200,
+                'message'=>'kartu inventaris Berhasil Dihapus',
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status'=> 404,
+                'message' => 'Tidak ada ID kategori',
+            ]);
+        }
+    }
+
+    public function edit_show($id_inv) 
+    {
+        $kartu_inv = kartu_inv::find($id_inv);
+        
+        if($kartu_inv)
+        {
+            return response()->json([
+                'status'=> 200,
+                'kartu_inv' => $kartu_inv,
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status'=> 404,
+                'message' => 'No kartu inven Found',
+            ]);
+        }
+
+    }
+
+    public function update(Request $request,$id_inv)
+    {
+        // $harga = harga::select('harga.*')->where('id', $id_category)->get();
+        $kartu_inv = kartu_inv::find($id_inv);
+        $kartu_inv->jenis_koleksi = $request->input('jenis-koleksi');
+        $kartu_inv->update();
+
+        return response()->json([
+            'status'=> 200,
+            'message'=>'Berhasil Update kartu inventaris'  ,
+        ]);
     }
 }

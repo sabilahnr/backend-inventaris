@@ -36,7 +36,71 @@ class KartuMuseumController extends Controller
             'status'=> 200,
             'message'=> 'Kartu Museum sukses ditambahkan',
         ]);
+    }
 
+    public function show()
+    {
+        $kartu_museum = kartu_museum::all();
+        return response()->json([
+            'status' => 200,
+            'kartu_museum' => $kartu_museum,
+        ]);
+    }
+
+    public function destroy($id_kartumuseum)
+    {
+        $kartu_museum = kartu_museum::find($id_kartumuseum);
+
+       
+        if($kartu_museum)
+        {
+            $kartu_museum->delete();
+            return response()->json([
+                'status'=> 200,
+                'message'=>'kartu museum Berhasil Dihapus',
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status'=> 404,
+                'message' => 'Tidak ada kartu museum',
+            ]);
+        }
+    }
+
+    public function edit_show($id_kartumuseum) 
+    {
+        $kartu_museum = kartu_museum::find($id_kartumuseum);
+        
+        if($kartu_museum)
+        {
+            return response()->json([
+                'status'=> 200,
+                'kartu_museum' => $kartu_museum,
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status'=> 404,
+                'message' => 'No kartu museum Id Found',
+            ]);
+        }
 
     }
+
+    public function update(Request $request,$id_kartumuseum)
+    {
+        // $harga = harga::select('harga.*')->where('id', $id_category)->get();
+        $kartu_museum = kartu_museum::find($id_kartumuseum);
+        $kartu_museum->nama_kategori = $request->input('');
+        $kartu_museum->update();
+
+        return response()->json([
+            'status'=> 200,
+            'message'=>'Berhasil Update kartu museum'  ,
+        ]);
+    }
 }
+

@@ -88,14 +88,14 @@ class BukuController extends Controller
                 $buku->delete();
                 return response()->json([
                     'status'=> 200,
-                    'message'=>'kategori Berhasil Dihapus',
+                    'message'=>'buku Berhasil Dihapus',
                 ]);
             }
             else
             {
                 return response()->json([
                     'status'=> 404,
-                    'message' => 'Tidak ada ID kategori',
+                    'message' => 'Tidak ada ID buku',
                 ]);
             }
         }
@@ -115,7 +115,7 @@ class BukuController extends Controller
             {
                 return response()->json([
                     'status'=> 404,
-                    'message' => 'No kategori Id Found',
+                    'message' => 'No buku Id Found',
                 ]);
             }
     
@@ -136,7 +136,7 @@ class BukuController extends Controller
             {
                 return response()->json([
                     'status'=> 404,
-                    'message' => 'No kategori Id Found',
+                    'message' => 'No buku Id Found',
                 ]);
             }
     
@@ -155,8 +155,7 @@ class BukuController extends Controller
     {
         
         $buku = buku::find($id_buku);
-
-        $buku->nama_kategori = $request->input('buku');
+        $buku->judul_buku = $request->input('buku');
         $buku->update();
 
         return response()->json([

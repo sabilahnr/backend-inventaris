@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('kartu_museums', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_koleksi')->references('id')->on('koleksis')->constrained();
             $table->string('nama_benda');
             $table->string('bahan');
             $table->string('asal_ditemukan');

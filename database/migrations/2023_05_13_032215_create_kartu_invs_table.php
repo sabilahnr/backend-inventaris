@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('kartu_invs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_koleksi')->references('id')->on('koleksis')->constrained();
             $table->string('jenis_koleksi');
             $table->string('sub_koleksi');
             $table->string('no_inv')->nullable();
