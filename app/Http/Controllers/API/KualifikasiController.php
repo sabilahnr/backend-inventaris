@@ -10,7 +10,7 @@ class KualifikasiController extends Controller
 {
     public function store_kualifikasi(Request $request)
     {
-        $kualifikasi = new kualifikasi;
+        $kualifikasi = new kualifikasi();
         $kualifikasi->nama_kualifikasi = $request->input('nama_kualifikasi');
         $kualifikasi->save();
 
@@ -19,8 +19,43 @@ class KualifikasiController extends Controller
             'message'=> 'Kualifikasi sukses ditambahkan',
         ]);
 
-
     }
+
+    public function edit_show($id_kualifikasi) 
+        {
+            $kualifikasi = kualifikasi::find($id_kualifikasi);
+            
+            if($kualifikasi)
+            {
+                return response()->json([
+                    'status'=> 200,
+                    'museum' => $id_kualifikasi,
+                ]);
+            }
+            else
+            {
+                return response()->json([
+                    'status'=> 404,
+                    'message' => 'No Museum Id Found',
+                ]);
+            }
+    
+        }
+
+        public function update(Request $request,$id_kualifikasi)
+    {
+        $kualifikasi = kualifikasi::find($id_kualifikasi);
+
+        $kualifikasi->nama_kualifikasi = $request->input('nama_kualifikasi');
+        $kualifikasi->update();
+
+        return response()->json([
+            'status'=> 200,
+            'message'=>'Berhasil Update Museum',
+        ]);
+    }
+
+    
 
     public function show_kualifikasi()
     {
@@ -41,7 +76,7 @@ class KualifikasiController extends Controller
                 $kualifikasi->delete();
                 return response()->json([
                     'status'=> 200,
-                    'message'=>'kualifikasi Berhasil Dihapus',
+                    'message'=>'kategori Berhasil Dihapus',
                 ]);
             }
             else
@@ -52,27 +87,7 @@ class KualifikasiController extends Controller
                 ]);
             }
         }
-    
-        public function edit_show($kualifikasi) 
-        {
-            $kualifikasi = kualifikasi::find($kualifikasi);
-            
-            if($kualifikasi)
-            {
-                return response()->json([
-                    'status'=> 200,
-                    'buku' => $kualifikasi,
-                ]);
-            }
-            else
-            {
-                return response()->json([
-                    'status'=> 404,
-                    'message' => 'No kualifikasi Id Found',
-                ]);
-            }
-    
-        }
+
 
         public function show_detail($id_kualifikasi) 
         {
@@ -104,18 +119,18 @@ class KualifikasiController extends Controller
         ]);
     }
 
-    public function update(Request $request,$id_kualifikasi)
-    {
+    // public function update(Request $request,$id_kualifikasi)
+    // {
         
-        $kualifikasi = kualifikasi::find($id_kualifikasi);
-        $kualifikasi->kualifikasi = $request->input('kualifikasi');
-        $kualifikasi->update();
+    //     $kualifikasi = kualifikasi::find($id_kualifikasi);
+    //     $kualifikasi->kualifikasi = $request->input('kualifikasi');
+    //     $kualifikasi->update();
 
-        return response()->json([
-            'status'=> 200,
-            'message'=>'Berhasil Update kualifikasi'  ,
-        ]);
-    }
+    //     return response()->json([
+    //         'status'=> 200,
+    //         'message'=>'Berhasil Update kualifikasi'  ,
+    //     ]);
+    // }
 
 }
 

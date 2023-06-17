@@ -51,4 +51,13 @@ class KoleksiController extends Controller
 
 
     }
+
+    public function index()
+    {
+        $koleksi = koleksi::all();
+        return response()->json([
+            'status'=> 200,
+            'koleksi'=>$koleksi,
+        ]);
+    }
 }

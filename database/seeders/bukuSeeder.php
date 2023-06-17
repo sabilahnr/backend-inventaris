@@ -18,6 +18,7 @@ class bukuSeeder extends Seeder
         Modelsbuku::create([
             'id' => 1,
             'id_museum' => 1,
+            'id_kualifikasi' => 1,
             'kode_buku' => 1,
             'judul_buku' => 'Ensiklopedia keris',
             'pengarang' => 'Bambang H',
@@ -32,6 +33,7 @@ class bukuSeeder extends Seeder
         Modelsbuku::create([
             'id' => 2,
             'id_museum' => 2,
+            'id_kualifikasi' => 1,
             'kode_buku' => 2,
             'judul_buku' => 'Keris nusantara',
             'pengarang' => 'Bambang H',
@@ -46,6 +48,7 @@ class bukuSeeder extends Seeder
         Modelsbuku::create([
             'id' => 3,
             'id_museum' => 2,
+            'id_kualifikasi' => 1,
             'kode_buku' => 3,
             'judul_buku' => 'Amba Laksmi Pamuntjak',
             'pengarang' => 'Goenawan Mohamad',
@@ -60,6 +63,7 @@ class bukuSeeder extends Seeder
         Modelsbuku::create([
             'id' => 4,
             'id_museum' => 2,
+            'id_kualifikasi' => 1,
             'kode_buku' => 4,
             'judul_buku' => 'Max Havelaar',
             'pengarang' => 'Multatuli',
@@ -74,6 +78,7 @@ class bukuSeeder extends Seeder
         Modelsbuku::create([
             'id' => 5,
             'id_museum' => 2,
+            'id_kualifikasi' => 1,
             'kode_buku' => 5,
             'judul_buku' => 'Ronggeng Dukuh Paruk',
             'pengarang' => 'Ahmad Tohari',
@@ -86,8 +91,9 @@ class bukuSeeder extends Seeder
         ]);
 
         Modelsbuku::create([
-            'id' => 2,
+            'id' => 6,
             'id_museum' => 2,
+            'id_kualifikasi' => 2,
             'kode_buku' => 3,
             'judul_buku' => 'Keris Jawa',
             'pengarang' => 'MT Arifin',
@@ -99,8 +105,9 @@ class bukuSeeder extends Seeder
         ]);
 
         Modelsbuku::create([
-            'id' => 2,
+            'id' => 7,
             'id_museum' => 2,
+            'id_kualifikasi' => 1,
             'kode_buku' => 4,
             'judul_buku' => 'Keris Jawa Tengah',
             'pengarang' => 'Hadi',
@@ -112,8 +119,9 @@ class bukuSeeder extends Seeder
         ]);
 
         Modelsbuku::create([
-            'id' => 2,
+            'id' => 8,
             'id_museum' => 2,
+            'id_kualifikasi' => 2,
             'kode_buku' => 5,
             'judul_buku' => 'Budaya Nasional',
             'pengarang' => 'Ardi',

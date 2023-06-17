@@ -44,4 +44,12 @@ class koleksi extends Model
         'hibah_dari',
         'hulu',
     ];
+
+    public function kualifikasi(){
+        return $this->belongsTo('id_kualifikasi');
+    }
+
+    public function ruang(){
+        return $this->belongsTo('id_ruang');
+    }
 }

@@ -20,4 +20,12 @@ class buku extends Model
         'ket',
         'foto_buku',
     ];
+
+    public function kualifikasi(){
+        return $this->belongsTo('id_kualifikasi');
+    }
+
+    public function ruang(){
+        return $this->belongsTo('id_ruang');
+    }
 }

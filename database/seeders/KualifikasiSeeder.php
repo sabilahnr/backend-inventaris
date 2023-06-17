@@ -51,27 +51,27 @@ class KualifikasiSeeder extends Seeder
         ]);
 
         Modelskualifikasi::create([
-            'id' => 6,
+            'id' => 8,
             'nama_kualifikasi' => 'Buku Balai Pustaka Bary 2023',
         ]);
 
         Modelskualifikasi::create([
-            'id' => 6,
+            'id' => 9,
             'nama_kualifikasi' => 'Buku Baru (Th 2000)',
         ]);
 
         Modelskualifikasi::create([
-            'id' => 6,
+            'id' => 10,
             'nama_kualifikasi' => 'Buku Fotocopy',
         ]);
 
         Modelskualifikasi::create([
-            'id' => 6,
+            'id' => 11,
             'nama_kualifikasi' => 'Buku Hibah Bapak Fuad',
         ]);
 
         Modelskualifikasi::create([
-            'id' => 6,
+            'id' => 12,
             'nama_kualifikasi' => 'Buku Lama',
         ]);
     }
