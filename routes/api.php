@@ -54,6 +54,10 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/show-koleksi', [KoleksiController::class, 'index']);
 Route::post('/add-koleksi', [KoleksiController::class, 'store_keris']);
 
+//kartu simpan
+Route::post('/add-kartusimpan', [KartuSimpanController::class, 'store_kartusimpan']);
+Route::get('/show-kartusimpan', [KartuSimpanController::class, 'show_kartusimpan']);
+
 Route::post('/kol-kartu_inv', [KartuInvController::class, 'store_keris']);
 Route::post('/add-kartu_registrasi', [KartuRegistrasiController::class, 'store_keris']);
 Route::post('/add-kartu_simpan', [KartuSimpanController::class, 'store_keris']);
