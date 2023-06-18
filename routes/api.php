@@ -53,7 +53,6 @@ Route::post('/login', [AuthController::class, 'login']);
 //koleksi
 Route::get('/show-koleksi', [KoleksiController::class, 'index']);
 Route::post('/add-koleksi', [KoleksiController::class, 'store_keris']);
-
 Route::post('/kol-kartu_inv', [KartuInvController::class, 'store_keris']);
 Route::post('/add-kartu_registrasi', [KartuRegistrasiController::class, 'store_keris']);
 Route::post('/add-kartu_simpan', [KartuSimpanController::class, 'store_keris']);
@@ -64,6 +63,34 @@ Route::get('/show-ruang', [RuangController::class, 'show_ruang']);
 Route::delete('/delete-ruang/{id_ruang}', [RuangController::class, 'destroy']);
 Route::post('/edit-ruang/{id_ruang}', [RuangController::class, 'edit_show']);
 Route::get('/show_detail_ruang/{id_ruang}', [RuangController::class, 'show_detail']);
+
+//kartu museum
+Route::post('/add-kartumuseum', [KartuMuseumController::class, 'store']);
+Route::get('/show-kartumuseum', [KartuMuseumController::class, 'show']);
+Route::delete('/delete-kartumuseum/{id_kartumuseum}', [KartuMuseumController::class, 'destroy']);
+Route::post('/edit-kartumuseum/{id_kartumuseum}', [KartuMuseumController::class, 'edit_show']);
+Route::get('/show_detail_kartumuseum/{id_kartumuseum}', [KartuMuseumController::class, 'show_detail']);
+
+//kartu inventaris
+Route::post('/add-kartuinventaris', [KartuInvController::class, 'store']);
+Route::get('/show-kartuinventaris', [KartuInvController::class, 'show']);
+Route::delete('/delete-kartuinventaris/{id_kartuinventaris}', [KartuInvController::class, 'destroy']);
+Route::post('/edit-kartuinventaris/{id_kartuinventaris}', [KartuInvController::class, 'edit_show']);
+Route::get('/show_detail_kartuinventaris/{id_kartuinventaris}', [KartuInvController::class, 'show_detail']);
+
+//kartu simpan
+Route::post('/add-kartusimpan', [KartuSimpanController::class, 'store']);
+Route::get('/show-kartusimpan', [KartuSimpanController::class, 'show']);
+Route::delete('/delete-kartusimpan/{id_kartusimpan}', [KartuSimpanController::class, 'destroy']);
+Route::post('/edit-kartusimpan/{id_kartusimpan}', [KartuSimpanController::class, 'edit_show']);
+Route::get('/show_detail_kartusimpan/{id_kartusimpan}', [KartuSimpanController::class, 'show_detail']);
+
+//kartu registrasi
+Route::post('/add-karturegistrasi', [KartuRegistrasiController::class, 'store']);
+Route::get('/show-karturegistrasi', [KartuRegistrasiController::class, 'show']);
+Route::delete('/delete-karturegistrasi/{id_karturegistrasi}', [KartuRegistrasiController::class, 'destroy']);
+Route::post('/edit-karturegistrasi/{id_karturegistrasi}', [KartuRegistrasiController::class, 'edit_show']);
+Route::get('/show_detail_karturegistrasi/{id_karturegistrasi}', [KartuRegistrasiController::class, 'show_detail']);
 
 Route::post('/add-museum', [MuseumController::class, 'store_museum']);
 Route::post('/add-kualifikasi', [KualifikasiController::class, 'store_kualifikasi']);
