@@ -23,6 +23,15 @@ class RuangController extends Controller
 
     }
 
+    public function show()
+    {
+        $ruang = ruang::all();
+        return response()->json([
+            'status' => 200,
+            'ruang' => $ruang,
+        ]);
+    }
+
     public function destroy($id_ruang)
         {
             $ruang = ruang::find($id_ruang);

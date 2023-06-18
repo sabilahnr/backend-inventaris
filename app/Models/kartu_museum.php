@@ -30,4 +30,8 @@ class kartu_museum extends Model
         'no_foto',
         'no_slide',
     ];
+
+    public function koleksi(){
+        return $this->belongsTo('id_koleksi');
+    }
 }
