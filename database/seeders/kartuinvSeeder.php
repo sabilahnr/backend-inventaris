@@ -16,6 +16,8 @@ class kartuinvSeeder extends Seeder
     {
         ModelsKartuinv::create([
             'id' => '1',
+            'id_koleksi' => 3,
+            'id_buku' => 1,
             'jenis_koleksi' => 'keris',
             'sub_koleksi' => 'keris jawa',
             'no_inv' => '12345',
@@ -53,6 +55,8 @@ class kartuinvSeeder extends Seeder
 
         ModelsKartuinv::create([
             'id' => '2',
+            'id_koleksi' => 3,
+            'id_buku' => 1,
             'jenis_koleksi' => 'keris',
             'sub_koleksi' => 'keris jawa',
             'no_inv' => '12345',
@@ -90,6 +94,8 @@ class kartuinvSeeder extends Seeder
 
         ModelsKartuinv::create([
             'id' => '3',
+            'id_koleksi' => 3,
+            'id_buku' => 1,
             'jenis_koleksi' => 'keris',
             'sub_koleksi' => 'keris jawa',
             'no_inv' => '12345',
@@ -127,6 +133,8 @@ class kartuinvSeeder extends Seeder
 
         ModelsKartuinv::create([
             'id' => '4',
+            'id_koleksi' => 3,
+            'id_buku' => 1,
             'jenis_koleksi' => 'keris',
             'sub_koleksi' => 'keris jawa',
             'no_inv' => '12345',
@@ -164,6 +172,8 @@ class kartuinvSeeder extends Seeder
 
         ModelsKartuinv::create([
             'id' => '5',
+            'id_koleksi' => 3,
+            'id_buku' => 1,
             'jenis_koleksi' => 'keris',
             'sub_koleksi' => 'keris jawa',
             'no_inv' => '12345',

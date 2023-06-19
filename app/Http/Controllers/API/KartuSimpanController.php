@@ -32,16 +32,12 @@ class KartuSimpanController extends Controller
             'message'=> 'kartu simpan sukses ditambahkan',
         ]);
     }
-
-<<<<<<< HEAD
-    public function show_kartusimpan()
-=======
     public function show()
     {
-        $kartu_museum = kartu_simpan::all();
+        $kartu_simpan = kartu_simpan::all();
         return response()->json([
             'status' => 200,
-            'kartu_museum' => $kartu_museum,
+            'kartu_simpan' => $kartu_simpan,
         ]);
     }
 
@@ -109,17 +105,6 @@ class KartuSimpanController extends Controller
     
         }
 
-    public function show_kartu_simpan()
->>>>>>> 95f77183ea94af56241bebf52f1a9cc9fe076fa4
-    {
-        $kartu_simpan = kartu_simpan::all();
-        return response()->json([
-            'status'=> 200,
-            'kartu_simpan'=>$kartu_simpan,
-        ]);
-    }
-<<<<<<< HEAD
-=======
 
     public function update(Request $request,$id_kartusimpan)
     {
@@ -146,6 +131,4 @@ class KartuSimpanController extends Controller
             'message'=>'Berhasil Update kartu_simpan'  ,
         ]);
     }
-
->>>>>>> 95f77183ea94af56241bebf52f1a9cc9fe076fa4
 }

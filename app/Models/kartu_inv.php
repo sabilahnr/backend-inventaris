@@ -48,4 +48,8 @@ class kartu_inv extends Model
     public function koleksi(){
         return $this->belongsTo('id_koleksi');
     }
+
+    public function buku(){
+        return $this->belongsTo('id_buku');
+    }
 }

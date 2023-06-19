@@ -16,6 +16,10 @@ class kartusimpanSeeder extends Seeder
     {
         ModelsKartusimpan::create([
             'id' => 1,
+            'id_koleksi' => 3,
+            'id_buku' => 1,
+            'id_ruang' => 2,
+            'id_kualifikasi' => 1,
             'no_reg' => '123',
             'no_inv' => '321',
             'nama_kol' => 'keris jawa',
@@ -33,6 +37,10 @@ class kartusimpanSeeder extends Seeder
 
         ModelsKartusimpan::create([
             'id' => 2,
+            'id_koleksi' => 3,
+            'id_buku' => 1,
+            'id_ruang' => 2,
+            'id_kualifikasi' => 1,
             'no_reg' => '329',
             'no_inv' => '521',
             'nama_kol' => 'keris jawa',
@@ -50,6 +58,10 @@ class kartusimpanSeeder extends Seeder
 
         ModelsKartusimpan::create([
             'id' => 3,
+            'id_koleksi' => 3,
+            'id_buku' => 1,
+            'id_ruang' => 2,
+            'id_kualifikasi' => 1,
             'no_reg' => '123',
             'no_inv' => '321',
             'nama_kol' => 'keris jawa',
@@ -67,6 +79,10 @@ class kartusimpanSeeder extends Seeder
 
         ModelsKartusimpan::create([
             'id' => 4,
+            'id_koleksi' => 3,
+            'id_buku' => 1,
+            'id_ruang' => 2,
+            'id_kualifikasi' => 1,
             'no_reg' => '123',
             'no_inv' => '321',
             'nama_kol' => 'keris jawa',
@@ -84,6 +100,10 @@ class kartusimpanSeeder extends Seeder
 
         ModelsKartusimpan::create([
             'id' => 5,
+            'id_koleksi' => 3,
+            'id_buku' => 1,
+            'id_ruang' => 2,
+            'id_kualifikasi' => 1,
             'no_reg' => '123',
             'no_inv' => '321',
             'nama_kol' => 'keris jawa',

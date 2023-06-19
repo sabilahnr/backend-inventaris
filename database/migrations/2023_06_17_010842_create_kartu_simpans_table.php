@@ -15,15 +15,10 @@ return new class extends Migration
     {
         Schema::create('kartu_simpans', function (Blueprint $table) {
             $table->id();
-<<<<<<< HEAD
-            // $table->foreignId('id_museum')->references('id')->on('museums')->constrained();
-            // $table->foreignId('id_ruang')->references('id')->on('ruangs')->constrained();
-            // $table->foreignId('id_kualifikasi')->references('id')->on('kualifikasis')->constrained();
-=======
-            $table->foreignId('id_koleksi')->references('id')->on('koleksis')->constrained();
-            $table->foreignId('id_ruang')->references('id')->on('ruangs')->constrained();
-            $table->foreignId('id_kualifikasi')->references('id')->on('kualifikasis')->constrained();
->>>>>>> 95f77183ea94af56241bebf52f1a9cc9fe076fa4
+            $table->foreignId('id_koleksi')->references('id')->on('koleksis')->constrained()->nullable();
+            $table->foreignId('id_buku')->references('id')->on('bukus')->constrained()->nullable();
+            $table->foreignId('id_ruang')->references('id')->on('ruangs')->constrained()->nullable();
+            $table->foreignId('id_kualifikasi')->references('id')->on('kualifikasis')->constrained()->nullable();
             $table->string('no_reg');
             $table->string('no_inv');
             $table->string('nama_kol');

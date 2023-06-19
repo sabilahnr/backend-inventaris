@@ -16,6 +16,8 @@ class karturegistrasiSeeder extends Seeder
     {
         ModelsKarturegistrasi::create([
             'id' => 1,
+            'id_koleksi' => 3,
+            'id_buku' => 1,
             'no_reg' => '223',
             'no_inv' => '334',
             'nama_kol' => '456',
@@ -31,6 +33,8 @@ class karturegistrasiSeeder extends Seeder
 
         ModelsKarturegistrasi::create([
             'id' => 2,
+            'id_koleksi' => 3,
+            'id_buku' => 1,
             'no_reg' => '223',
             'no_inv' => '334',
             'nama_kol' => '456',
@@ -46,6 +50,8 @@ class karturegistrasiSeeder extends Seeder
 
         ModelsKarturegistrasi::create([
             'id' => 3,
+            'id_koleksi' => 3,
+            'id_buku' => 1,
             'no_reg' => '223',
             'no_inv' => '334',
             'nama_kol' => '456',
@@ -61,6 +67,8 @@ class karturegistrasiSeeder extends Seeder
 
         ModelsKarturegistrasi::create([
             'id' => 4,
+            'id_koleksi' => 3,
+            'id_buku' => 1,
             'no_reg' => '223',
             'no_inv' => '334',
             'nama_kol' => '456',
@@ -76,6 +84,8 @@ class karturegistrasiSeeder extends Seeder
 
         ModelsKarturegistrasi::create([
             'id' => 5,
+            'id_koleksi' => 3,
+            'id_buku' => 1,
             'no_reg' => '223',
             'no_inv' => '334',
             'nama_kol' => '456',
