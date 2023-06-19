@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\kartu_inv;
 
-class BukuController extends Controller
+class KartuInvController extends Controller
 {
     public function store_keris(Request $request)
     {

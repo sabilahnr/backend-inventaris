@@ -38,4 +38,8 @@ class kartu_simpan extends Model
     public function kualifikasi(){
         return $this->belongsTo('id_kualifikasi');
     }
+
+    public function buku(){
+        return $this->belongsTo('id_buku');
+    }
 }

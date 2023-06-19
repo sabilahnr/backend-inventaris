@@ -15,7 +15,9 @@ class kartumuseumSeeder extends Seeder
     public function run()
     {
         ModelsKartumuseum::create([
-            'id' => '1',
+            'id' => 1,
+            'id_koleksi' => 2,
+            'id_buku' => 1,
             'nama_benda' => 'keris',
             'bahan' => 'besi',
             'asal_ditemukan' => '-',
@@ -38,7 +40,9 @@ class kartumuseumSeeder extends Seeder
         ]);
 
         ModelsKartumuseum::create([
-            'id' => '2',
+            'id' => 2,
+            'id_koleksi' => 3,
+            'id_buku' => 3,
             'nama_benda' => 'keris',
             'bahan' => 'besi',
             'asal_ditemukan' => '-',
@@ -61,7 +65,9 @@ class kartumuseumSeeder extends Seeder
         ]);
 
         ModelsKartumuseum::create([
-            'id' => '3',
+            'id' => 3,
+            'id_koleksi' => 1,
+            'id_buku' => 1,
             'nama_benda' => 'keris',
             'bahan' => 'besi',
             'asal_ditemukan' => '-',
@@ -84,7 +90,9 @@ class kartumuseumSeeder extends Seeder
         ]);
 
         ModelsKartumuseum::create([
-            'id' => '4',
+            'id' => 4,
+            'id_koleksi' => 2,
+            'id_buku' => 2,
             'nama_benda' => 'keris',
             'bahan' => 'besi',
             'asal_ditemukan' => '-',
@@ -107,7 +115,9 @@ class kartumuseumSeeder extends Seeder
         ]);
 
         ModelsKartumuseum::create([
-            'id' => '5',
+            'id' => 5,
+            'id_koleksi' => 3,
+            'id_buku' => 1,
             'nama_benda' => 'keris',
             'bahan' => 'besi',
             'asal_ditemukan' => '-',

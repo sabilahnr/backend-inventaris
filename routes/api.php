@@ -55,7 +55,6 @@ Route::get('/show-koleksi', [KoleksiController::class, 'index']);
 Route::post('/add-koleksi', [KoleksiController::class, 'store_keris']);
 Route::post('/kol-kartu_inv', [KartuInvController::class, 'store_keris']);
 Route::post('/add-kartu_registrasi', [KartuRegistrasiController::class, 'store_keris']);
-Route::post('/add-kartu_simpan', [KartuSimpanController::class, 'store_keris']);
 
 //ruang
 Route::post('/add-ruang', [RuangController::class, 'store_ruang']);

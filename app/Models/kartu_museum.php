@@ -10,6 +10,8 @@ class kartu_museum extends Model
     use HasFactory;
     protected $table = 'kartu_museums';
     protected $fillable = [
+        'id_koleksi' ,
+        'id_buku',
         'nama_benda',
         'bahan',
         'asal_ditemukan',
@@ -33,5 +35,9 @@ class kartu_museum extends Model
 
     public function koleksi(){
         return $this->belongsTo('id_koleksi');
+    }
+
+    public function buku(){
+        return $this->belongsTo('id_buku');
     }
 }
