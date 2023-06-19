@@ -86,7 +86,7 @@ class bukuSeeder extends Seeder
         ]);
 
         Modelsbuku::create([
-            'id' => 2,
+            'id' => 6,
             'id_museum' => 2,
             'kode_buku' => 3,
             'judul_buku' => 'Keris Jawa',
@@ -99,7 +99,7 @@ class bukuSeeder extends Seeder
         ]);
 
         Modelsbuku::create([
-            'id' => 2,
+            'id' => 7,
             'id_museum' => 2,
             'kode_buku' => 4,
             'judul_buku' => 'Keris Jawa Tengah',
@@ -112,7 +112,7 @@ class bukuSeeder extends Seeder
         ]);
 
         Modelsbuku::create([
-            'id' => 2,
+            'id' => 8,
             'id_museum' => 2,
             'kode_buku' => 5,
             'judul_buku' => 'Budaya Nasional',
