@@ -12,4 +12,16 @@ class kualifikasi extends Model
     protected $fillable = [
         'nama_kualifikasi',
     ];
+
+    public function museum(){
+        return $this->belongsTo('id_museum');
+    }
+
+    public function buku(){
+        return $this->hasMany('id_buku');
+    }
+
+    public function koleksi(){
+        return $this->hasMany('id_koleksi');
+    }
 }

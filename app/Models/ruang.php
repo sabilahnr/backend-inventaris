@@ -10,9 +10,16 @@ class ruang extends Model
     use HasFactory;
     protected $table = 'ruangs';
     protected $fillable = [
-        'id_koleksi',
-        'alamat_museum',
-        'nama_kepala_museum',
-        'logo',
+        'lokasi',
+        'lemari',
+        'kunci',
     ];
+
+    public function museum (){
+        return $this->belongsTo('id_museum');
+    }
+
+    public function buku(){
+        return $this->hasMany('id_buku');
+    }
 }

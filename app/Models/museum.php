@@ -10,9 +10,21 @@ class museum extends Model
     use HasFactory;
     protected $table = 'museums';
     protected $fillable = [
-        'id_koleksi',
+        // 'id_koleksi',
         'alamat_museum',
         'nama_kepala_museum',
         'logo',
     ];
+
+    public function user(){
+        return $this->belongsTo('id_user');
+    }
+
+    public function kualifikasi(){
+        return $this->hasMany('id_kualifikasi');
+    }
+
+    public function ruang(){
+        return $this->hasMany('id_ruang');
+    }
 }

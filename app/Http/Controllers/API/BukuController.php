@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Buku;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class BukuController extends Controller
 {
@@ -47,17 +48,19 @@ class BukuController extends Controller
 
     public function store_buku(Request $request)
     {
+        $validator = Validator::make($request->all(),
+            [
+                'foto_buku' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            ]
+        );
 
+        if($validator->fails()) {
+            return response()->json(["status" => "failed", "message" => "Validation error", "errors" => $validator->errors()]);
+        }
+        
         $judul_buku = buku::where('id_museum',$request->id_museum)->where('judul_buku',$request->kategori)->first();
         
         if($judul_buku !== null)
-            {
-                return response()->json([
-                    'status'=> 205,
-                    'message'=>'Judul Sudah Ada',
-                ]);
-            }
-            else  
             {
                 $buku = new buku;
                 $buku->kode_buku = $request->input('kode_buku');
@@ -68,8 +71,15 @@ class BukuController extends Controller
                 $buku->bahasa = $request->input('bahasa');
                 $buku->halaman = $request->input('halaman');
                 $buku->ket_buku = $request->input('ket_buku');
-                $buku->save();
+                $buku->tanggal_inventarisasi = $request->input('tanggal_inventarisasi');
+                if ($request->hasFile('foto_buku')) {
+                    $image = $request->file('foto_buku');
+                    $ubah_nama_image = time() . '_' . 'buku' . '.' . $image->getClientOriginalExtension();
+                    $image->move('image', $ubah_nama_image);
 
+                    $buku->move('foto_buku', $ubah_nama_image);
+                }
+                $buku->save();
                 return response()->json([
                     'status'=> 200,
                     'message'=> 'Buku sukses ditambahkan',
@@ -88,14 +98,14 @@ class BukuController extends Controller
                 $buku->delete();
                 return response()->json([
                     'status'=> 200,
-                    'message'=>'kategori Berhasil Dihapus',
+                    'message'=>'buku Berhasil Dihapus',
                 ]);
             }
             else
             {
                 return response()->json([
                     'status'=> 404,
-                    'message' => 'Tidak ada ID kategori',
+                    'message' => 'Tidak ada ID buku',
                 ]);
             }
         }
@@ -115,7 +125,7 @@ class BukuController extends Controller
             {
                 return response()->json([
                     'status'=> 404,
-                    'message' => 'No kategori Id Found',
+                    'message' => 'No buku Id Found',
                 ]);
             }
     
@@ -136,7 +146,7 @@ class BukuController extends Controller
             {
                 return response()->json([
                     'status'=> 404,
-                    'message' => 'No kategori Id Found',
+                    'message' => 'No buku Id Found',
                 ]);
             }
     
@@ -156,7 +166,29 @@ class BukuController extends Controller
         
         $buku = buku::find($id_buku);
 
-        $buku->nama_kategori = $request->input('buku');
+        $databuku = [
+            'kode_buku' => $request->kode_buku,
+            'judul_buku' => $request->judul_buku,
+            'pengarang' => $request->pengarang,
+            'penerbit' => $request->penerbit,
+            'tahun_terbit' => $request->tahun_terbit,
+            'bahasa' => $request->bahasa,
+            'halaman' => $request->halaman,
+            'ket_buku' => $request->ket_buku,
+            'tanggal_inventarisasi' => $request->tanggal_inventarisasi,
+        ];
+       
+
+        $databuku['foto_buku'] = $buku->foto_buku;
+
+        if ($request->hasFile('foto_buku')) {
+            $image = $request->file('foto_buku');
+            $ubah_nama_image = time() . '_' . 'buku' . '.' . $image->getClientOriginalExtension();
+            $image->move('image', $ubah_nama_image);
+
+            $buku->move('foto_buku', $ubah_nama_image);
+
+        }
         $buku->update();
 
         return response()->json([

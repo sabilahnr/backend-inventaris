@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('ruangs', function (Blueprint $table) {
             $table->id();
-            $table->string('id_ruang')->nullable();
             $table->string('lokasi');
             $table->string('lemari');
             $table->string('kunci');

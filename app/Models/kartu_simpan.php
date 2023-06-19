@@ -26,4 +26,20 @@ class kartu_simpan extends Model
         'petugas_paraf',
         'foto_simpan',
     ];
+
+    public function koleksi(){
+        return $this->belongsTo('id_koleksi');
+    }
+
+    public function ruang(){
+        return $this->belongsTo('id_ruang');
+    }
+
+    public function kualifikasi(){
+        return $this->belongsTo('id_kualifikasi');
+    }
+
+    public function buku(){
+        return $this->belongsTo('id_buku');
+    }
 }

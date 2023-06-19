@@ -10,12 +10,24 @@ class KoleksiController extends Controller
 {
     public function store_keris(Request $request)
     {
+
+        $request->validate([
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        if ($request->hasFile('foto')) {
+            $image = $request->file('foto');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('public/images', $imageName);
+            
+            // Simpan $imageName ke dalam kolom yang sesuai di database
+        }
+
         $koleksi = new Koleksi;
         $koleksi->id_koleksi = $request->input('id_koleksi');
         $koleksi->nama_koleksi = $request->input('nama_koleksi');
         $koleksi->dhapur = $request->input('dhapur');
         $koleksi->klasifikasi = $request->input('klasifikasi');
-        $koleksi->ruang = $request->input('ruang');
         $koleksi->kode_jenis = $request->input('kode_jenis');
         $koleksi->tanggal_regis = $request->input('tanggal_regis');
         $koleksi->desk_benda = $request->input('desk_benda');
@@ -51,5 +63,14 @@ class KoleksiController extends Controller
         ]);
 
 
+    }
+
+    public function index()
+    {
+        $koleksi = koleksi::all();
+        return response()->json([
+            'status'=> 200,
+            'koleksi'=>$koleksi,
+        ]);
     }
 }

@@ -44,4 +44,12 @@ class kartu_inv extends Model
         'ket_lain',
         'foto_inv',
     ];
+
+    public function koleksi(){
+        return $this->belongsTo('id_koleksi');
+    }
+
+    public function buku(){
+        return $this->belongsTo('id_buku');
+    }
 }

@@ -44,4 +44,33 @@ class koleksi extends Model
         'hibah_dari',
         'hulu',
     ];
+
+    public function kualifikasi(){
+        return $this->belongsTo('id_kualifikasi');
+    }
+
+    public function ruang(){
+        return $this->belongsTo('id_ruang');
+    }
+
+    public function buku(){
+        return $this->hasOne('id_buku');
+    }
+
+    public function kartu_inv(){
+        return $this->hasOne('id_kartu_inv');
+    }
+
+    public function kartu_museum(){
+        return $this->hasOne('id_kartu_museum');
+    }
+
+
+    public function kartu_registrasi(){
+        return $this->hasOne('id_kartu_registrasi');
+    }
+
+    public function kartu_simpan(){
+        return $this->hasOne('id_kartu_registrasi');
+    }
 }
