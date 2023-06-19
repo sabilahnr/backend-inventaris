@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('kode_buku')->nullable();
             $table->string('judul_buku')->nullable();
             $table->string('pengarang')->nullable();
-            $table->string('tempat_terbit')->nullable();
+            $table->string('penerbit')->nullable();
             $table->string('tahun_terbit')->nullable();
             $table->string('bahasa')->nullable();
             $table->string('halaman')->nullable();

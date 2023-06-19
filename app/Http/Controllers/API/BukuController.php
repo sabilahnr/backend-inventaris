@@ -63,7 +63,7 @@ class BukuController extends Controller
                 $buku->kode_buku = $request->input('kode_buku');
                 $buku->judul_buku = $request->input('judul_buku');
                 $buku->pengarang = $request->input('pengarang');
-                $buku->tempat_terbit = $request->input('tempat_terbit');
+                $buku->penerbit = $request->input('penerbit');
                 $buku->tahun_terbit = $request->input('tahun_terbit');
                 $buku->bahasa = $request->input('bahasa');
                 $buku->halaman = $request->input('halaman');
@@ -159,7 +159,7 @@ class BukuController extends Controller
         $buku->kode_buku = $request->input('kode_buku');
         $buku->judul_buku = $request->input('judul_buku');
         $buku->pengarang = $request->input('pengarang');
-        $buku->tempat_terbit = $request->input('tempat_terbit');
+        $buku->penerbit = $request->input('penerbit');
         $buku->tahun_terbit = $request->input('tahun_terbit');
         $buku->bahasa = $request->input('bahasa');
         $buku->halaman = $request->input('halaman');
