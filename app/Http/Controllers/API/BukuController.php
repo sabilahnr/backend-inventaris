@@ -63,11 +63,12 @@ class BukuController extends Controller
                 $buku->kode_buku = $request->input('kode_buku');
                 $buku->judul_buku = $request->input('judul_buku');
                 $buku->pengarang = $request->input('pengarang');
-                $buku->penerbit = $request->input('penerbit');
+                $buku->tempat_terbit = $request->input('tempat_terbit');
                 $buku->tahun_terbit = $request->input('tahun_terbit');
                 $buku->bahasa = $request->input('bahasa');
                 $buku->halaman = $request->input('halaman');
                 $buku->ket_buku = $request->input('ket_buku');
+                $buku->tanggal_inventarisasi = $request->input('tanggal_inventarisasi');
                 $buku->save();
 
                 return response()->json([
@@ -155,7 +156,15 @@ class BukuController extends Controller
     {
         
         $buku = buku::find($id_buku);
-        $buku->judul_buku = $request->input('buku');
+        $buku->kode_buku = $request->input('kode_buku');
+        $buku->judul_buku = $request->input('judul_buku');
+        $buku->pengarang = $request->input('pengarang');
+        $buku->tempat_terbit = $request->input('tempat_terbit');
+        $buku->tahun_terbit = $request->input('tahun_terbit');
+        $buku->bahasa = $request->input('bahasa');
+        $buku->halaman = $request->input('halaman');
+        $buku->ket_buku = $request->input('ket_buku');
+        $buku->tanggal_inventarisasi = $request->input('tanggal_inventarisasi');
         $buku->update();
 
         return response()->json([

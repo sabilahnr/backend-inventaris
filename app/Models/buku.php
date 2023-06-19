@@ -13,10 +13,11 @@ class buku extends Model
         'kode_buku',
         'judul_buku',
         'pengarang',
-        'penerbit',
+        'tempat_terbit',
         'tahun terbit',
         'bahasa',
         'halaman',
+        'tanggal_inventaris',
         'ket',
         'foto_buku',
     ];
