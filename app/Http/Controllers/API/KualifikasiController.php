@@ -29,14 +29,14 @@ class KualifikasiController extends Controller
             {
                 return response()->json([
                     'status'=> 200,
-                    'museum' => $id_kualifikasi,
+                    'kualifikasi' => $kualifikasi,
                 ]);
             }
             else
             {
                 return response()->json([
                     'status'=> 404,
-                    'message' => 'No Museum Id Found',
+                    'message' => 'No  Id Found',
                 ]);
             }
     
