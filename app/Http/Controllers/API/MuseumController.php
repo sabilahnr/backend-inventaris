@@ -66,7 +66,7 @@ class MuseumController extends Controller
             {
                 return response()->json([
                     'status'=> 200,
-                    'museum' => $id_museum,
+                    'museum' => $museum,
                 ]);
             }
             else
