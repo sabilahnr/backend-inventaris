@@ -141,4 +141,27 @@ class PerubahanController extends Controller
 
         return null;
     }
+
+    public function tolak($id)
+    {
+            $permintaan = Permintaan::where('id_perubahan',$id)->first();
+
+      
+            $permintaan->status_perubahan ='ditolak';
+            $permintaan->update();
+
+            return response()->json([
+                'status'=> 200,
+                'message'=>'Berhasil Update menolak',
+            ]);
+        
+
+        
+
+        
+        
+
+
+        
+    }
 }

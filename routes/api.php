@@ -97,11 +97,13 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/update-museum/{id_museum}', [MuseumController::class, 'update']);
     Route::post('/add_museum', [MuseumController::class, 'store_museum']);
     Route::delete('/delete-museum/{id_museum}', [MuseumController::class, 'destroy']);
-
+    Route::get('/data-permintaan-admin', [PermintaanController::class, 'show_admin']);
+    
     
 });
 
 
+Route::put('/tolak-perubahan/{id}', [PerubahanController::class, 'tolak']);
 Route::post('/tambah-perubahan', [PerubahanController::class, 'store']);
 Route::put('/update-perubahan', [PerubahanController::class, 'update']);
 Route::post('/delete-perubahan', [PerubahanController::class, 'destroy']);

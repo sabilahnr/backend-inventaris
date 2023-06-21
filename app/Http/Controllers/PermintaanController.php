@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Permintaan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class PermintaanController extends Controller
 {
@@ -24,6 +26,21 @@ class PermintaanController extends Controller
         return response()->json([
             'status' => 200,
             'perubahan' => $filteredPermintaans,
+        ]);
+    }
+    public function show_admin()
+    {
+        $user = User::find(Auth::id());
+        $roleName = $user->id;
+
+        // $permintaan = Permintaan::where('id_admin',$roleName)->get();
+        $permintaan = DB::table('permintaans')
+                        ->where('id_admin',$roleName)
+                        ->get();
+
+        return response()->json([
+            'status' => 200,
+            'perubahan' => $permintaan,
         ]);
     }
 }
