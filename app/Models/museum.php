@@ -10,7 +10,7 @@ class museum extends Model
     use HasFactory;
     protected $table = 'museums';
     protected $fillable = [
-        // 'id_koleksi',
+        'nama_museum',
         'alamat_museum',
         'nama_kepala_museum',
         'logo',

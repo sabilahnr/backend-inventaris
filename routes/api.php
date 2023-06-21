@@ -12,6 +12,8 @@ use App\Http\Controllers\API\RuangController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\PermintaanController;
+use App\Http\Controllers\PerubahanController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -36,10 +38,7 @@ Route::get('/show_detail_buku/{id_buku}', [BukuController::class, 'show_detail']
 
 //museum
 Route::get('/show-museum', [MuseumController::class, 'show_museum']);
-Route::post('/add_museum', [MuseumController::class, 'store_museum']);
-Route::delete('/delete-museum/{id_museum}', [MuseumController::class, 'destroy']);
 Route::get('/edit-museum/{id_museum}', [MuseumController::class, 'edit_show']);
-Route::put('/update-museum/{id_museum}', [MuseumController::class, 'update']);
 
 //kualifikasi
 Route::get('/show-kualifikasi', [KualifikasiController::class, 'show_kualifikasi']);
@@ -91,11 +90,21 @@ Route::delete('/delete-karturegistrasi/{id_karturegistrasi}', [KartuRegistrasiCo
 Route::post('/edit-karturegistrasi/{id_karturegistrasi}', [KartuRegistrasiController::class, 'edit_show']);
 Route::get('/show_detail_karturegistrasi/{id_karturegistrasi}', [KartuRegistrasiController::class, 'show_detail']);
 
-Route::post('/add-museum', [MuseumController::class, 'store_museum']);
+Route::get('/data-permintaan', [PermintaanController::class, 'show']);
+
 Route::post('/add-kualifikasi', [KualifikasiController::class, 'store_kualifikasi']);
 Route::middleware('auth:sanctum')->group(function () {
+    Route::put('/update-museum/{id_museum}', [MuseumController::class, 'update']);
+    Route::post('/add_museum', [MuseumController::class, 'store_museum']);
+    Route::delete('/delete-museum/{id_museum}', [MuseumController::class, 'destroy']);
 
+    
 });
+
+
+Route::post('/tambah-perubahan', [PerubahanController::class, 'store']);
+Route::put('/update-perubahan', [PerubahanController::class, 'update']);
+Route::post('/delete-perubahan', [PerubahanController::class, 'destroy']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 return $request->user();
