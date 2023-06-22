@@ -10,6 +10,8 @@ class kartu_inv extends Model
     use HasFactory;
     protected $table = 'kartu_invs';
     protected $fillable = [
+        'id_koleksi',
+        'id_buku',
         'jenis_koleksi',
         'sub_koleksi',
         'no_inv',

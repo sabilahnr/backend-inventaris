@@ -10,6 +10,8 @@ class buku extends Model
     use HasFactory;
     protected $table = 'bukus';
     protected $fillable = [
+        'id_kualifikasi',
+        'id_museum',
         'kode_buku',
         'judul_buku',
         'pengarang',
@@ -30,12 +32,16 @@ class buku extends Model
         return $this->belongsTo('id_ruang');
     }
 
+    public function museum(){
+        return $this->belongsTo('museum');
+    }
+
     public function kartu_museum(){
         return $this->hasOne('id_kartu_museum');
     }
 
     public function kartu_inv(){
-        return $this->hasOne('id_kartu_inv');
+        return $this->hasOne('id_buku');
     }
 
     public function kartu_registrasi(){

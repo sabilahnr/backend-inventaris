@@ -10,11 +10,10 @@ class koleksi extends Model
     use HasFactory;
     protected $table = 'koleksis';
     protected $fillable = [
-        'id_koleksi',
+        // 'id_koleksi',
         'nama_koleksi',
         'dhapur',
         'klasifikasi',
-        'ruang',
         'kode_jenis',
         'tanggal_regis',
         'desk_benda',
@@ -45,32 +44,32 @@ class koleksi extends Model
         'hulu',
     ];
 
-    public function kualifikasi(){
-        return $this->belongsTo('id_kualifikasi');
-    }
+    // public function kualifikasi(){
+    //     return $this->belongsTo('id_kualifikasi');
+    // }
 
-    public function ruang(){
-        return $this->belongsTo('id_ruang');
-    }
+    // public function ruang(){
+    //     return $this->belongsTo('id_ruang');
+    // }
 
-    public function buku(){
-        return $this->hasOne('id_buku');
-    }
+    // public function buku(){
+    //     return $this->hasOne('id_buku');
+    // }
 
     public function kartu_inv(){
-        return $this->hasOne('id_kartu_inv');
+        return $this->hasOne('id_koleksi');
     }
 
-    public function kartu_museum(){
-        return $this->hasOne('id_kartu_museum');
-    }
+    // public function kartu_museum(){
+    //     return $this->hasOne('id_kartu_museum');
+    // }
 
 
-    public function kartu_registrasi(){
-        return $this->hasOne('id_kartu_registrasi');
-    }
+    // public function kartu_registrasi(){
+    //     return $this->hasOne('id_kartu_registrasi');
+    // }
 
-    public function kartu_simpan(){
-        return $this->hasOne('id_kartu_registrasi');
-    }
+    // public function kartu_simpan(){
+    //     return $this->hasOne('id_kartu_registrasi');
+    // }
 }

@@ -3,56 +3,122 @@
 namespace App\Http\Controllers\API;
 
 use App\Models\Buku;
+use App\Models\kualifikasi;
+use App\Models\museum;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
 class BukuController extends Controller
 {
+    // public function store_buku(Request $request)
+    // {
+    //     // Validasi data yang diterima
+    //     $request->validate([
+    //         'foto_buku' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048' // Menyatakan bahwa `foto` harus berupa file gambar dengan format yang diizinkan dan ukuran maksimal 2MB
+    //     ]);
 
+    //     $foto_buku = $request->file('foto_buku');
+    //     $fotoName = time() . '_' . $foto_buku->getClientOriginalName();
+    //     $foto_buku->move(public_path('images'), $fotoName);
 
+    //     // Melakukan operasi lainnya dengan data dan foto yang diterima 
+    //     $id_kualifikasi = $request->input('id_kualifikasi');
+    //     $id_museum = $request->input('id_museum');
+    //     $kode_buku = $request->input('kode_buku');
+    //     $judul_buku = $request->input('judul_buku');
+    //     $pengarang = $request->input('pengarang');
+    //     $penerbit = $request->input('penerbit');
+    //     $tahun_terbit = $request->input('tahun_terbit');
+    //     $bahasa = $request->input('bahasa');
+    //     $halaman = $request->input('halaman');
+    //     $ket = $request->input('ket');
+    //     $tanggal_inventaris = $request->input('tanggal_inventaris');
+    //     $foto_buku = $request->input('foto_buku');
 
-    public function store_buku(Request $request)
+    //     // Menyimpan data ke dalam database
+    //     $buku = new buku();
+    //         $buku->id_kualifikasi = $id_kualifikasi;
+    //         $buku->id_museum = $id_museum;
+    //         $buku->kode_buku = $kode_buku;
+    //         $buku->judul_buku = $judul_buku;
+    //         $buku->pengarang = $pengarang;
+    //         $buku->penerbit = $penerbit;
+    //         $buku->tahun_terbit = $tahun_terbit;
+    //         $buku->bahasa = $bahasa;
+    //         $buku->halaman = $halaman;
+    //         $buku->ket = $ket;
+    //         $buku->tanggal_inventaris = $tanggal_inventaris;
+    //         $buku->foto_buku = $foto_buku;
+
+    //         // Menyimpan data ke dalam database
+    //         // $buku = new buku;
+    //         // $buku->id_kualifikasi = $request->input('id_kualifikasi');
+    //         // $buku->id_museum = $request->input('id_museum');
+    //         // $buku->kode_buku = $request->input('kode_buku');
+    //         // $buku->judul_buku = $request->input('judul_buku');
+    //         // $buku->pengarang = $request->input('pengarang');
+    //         // $buku->penerbit = $request->input('penerbit');
+    //         // $buku->tahun_terbit = $request->input('tahun_terbit');
+    //         // $buku->bahasa = $request->input('bahasa');
+    //         // $buku->halaman = $request->input('halaman');
+    //         // $buku->ket = $request->input('ket');
+    //         // $buku->tanggal_inventaris = $request->input('tanggal_inventaris');
+    //         // $buku->foto_buku = $request->input('foto_buku');
+
+    //         // Mengembalikan response sukses
+    //         $buku->save();
+    //         return response()->json([ 
+    //         'status'=> 200,
+    //         'message'=> 'Buku sukses ditambahkan',
+    //     ]);
+            
+
+        // }
+
+        public function store_buku(Request $request)
     {
-        $validator = Validator::make($request->all(),
-            [
-                'foto_buku' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
-            ]
-        );
-
-        if($validator->fails()) {
-            return response()->json(["status" => "failed", "message" => "Validation error", "errors" => $validator->errors()]);
-        }
+         // Validasi data yang diterima
+        $request->validate([
+            'foto_buku' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048' // Menyatakan bahwa `foto` harus berupa file gambar dengan format yang diizinkan dan ukuran maksimal 2MB
+        ]);
         
-        $judul_buku = buku::where('id_museum',$request->id_museum)->where('judul_buku',$request->kategori)->first();
-        
-        if($judul_buku !== null)
-            {
-                $buku = new buku;
-                $buku->kode_buku = $request->input('kode_buku');
-                $buku->judul_buku = $request->input('judul_buku');
-                $buku->pengarang = $request->input('pengarang');
-                $buku->penerbit = $request->input('penerbit');
-                $buku->tahun_terbit = $request->input('tahun_terbit');
-                $buku->bahasa = $request->input('bahasa');
-                $buku->halaman = $request->input('halaman');
-                $buku->ket_buku = $request->input('ket_buku');
-                $buku->tanggal_inventarisasi = $request->input('tanggal_inventarisasi');
-                if ($request->hasFile('foto_buku')) {
-                    $image = $request->file('foto_buku');
-                    $ubah_nama_image = time() . '_' . 'buku' . '.' . $image->getClientOriginalExtension();
-                    $image->move('foto_buku', $ubah_nama_image);
+        $buku = new buku;
+        $buku->id_kualifikasi = $request->input('id_kualifikasi');
+        $buku->id_museum = $request->input('id_museum');
+        $buku->kode_buku = $request->input('kode_buku');
+        $buku->judul_buku = $request->input('judul_buku');
+        $buku->pengarang = $request->input('pengarang');
+        $buku->penerbit = $request->input('penerbit');
+        $buku->tahun_terbit = $request->input('tahun_terbit');
+        $buku->bahasa = $request->input('bahasa');
+        $buku->halaman = $request->input('halaman');
+        $buku->ket = $request->input('ket');
+        $buku->tanggal_inventaris = $request->input('tanggal_inventaris');
+        $buku->foto_buku = $request->input('foto_buku');
+        if ($request->hasFile('foto_buku')) {
+            $file = $request->file('foto_buku');
+            
+            // Mengambil ekstensi file
+            $extension = $file->getClientOriginalExtension();
+            
+            // Membuat nama unik untuk file
+            $fileName = time().'.'.$extension;
+            
+            // Menyimpan file ke folder yang ditentukan (misalnya public/uploads)
+            $file->storeAs('public/uploads', $fileName);
 
-                    $buku->move('foto_buku', $ubah_nama_image);
-                }
-                $buku->save();
-                return response()->json([
-                    'status'=> 200,
-                    'message'=> 'Buku sukses ditambahkan',
-                ]);
-            }
-
+            $buku->foto_buku = $fileName;
         }
+
+        $buku->save();
+        
+
+        return response()->json([
+            'status'=> 200,
+            'message'=>'Berhasil simpan buku' ,
+        ]);
+    }
 
         public function destroy($id_buku)
         {
@@ -127,40 +193,81 @@ class BukuController extends Controller
         ]);
     }
 
+    // public function update(Request $request,$id_buku)
+    // {
+        
+    //     $buku = buku::find($id_buku);
+
+    //     $databuku = [
+    //         'id_museum' => $request->id_museum,
+    //         'id_kualifikasi' => $request->id_kualifikasi,
+    //         'kode_buku' => $request->kode_buku,
+    //         'judul_buku' => $request->judul_buku,
+    //         'pengarang' => $request->pengarang,
+    //         'penerbit' => $request->penerbit,
+    //         'tahun_terbit' => $request->tahun_terbit,
+    //         'bahasa' => $request->bahasa,
+    //         'halaman' => $request->halaman,
+    //         'ket' => $request->ket,
+    //         'tanggal_inventaris' => $request->tanggal_inventaris,
+    //     ];
+       
+
+    //     $databuku['foto_buku'] = $buku->foto_buku;
+
+    //     if ($request->hasFile('foto_buku')) {
+    //         $image = $request->file('foto_buku');
+    //         $ubah_nama_image = time() . '_' . 'buku' . '.' . $image->getClientOriginalExtension();
+    //         $image->move('foto_buku', $ubah_nama_image);
+
+    //         $buku->foto_buku = $ubah_nama_image;
+
+    //     }
+    //     $buku->update();
+
+    //     return response()->json([
+    //         'status'=> 200,
+    //         'message'=>'Berhasil Update kategori' ,
+    //     ]);
+    // }
+
     public function update(Request $request,$id_buku)
     {
         
-        $buku = buku::find($id_buku);
-
-        $databuku = [
-            'kode_buku' => $request->kode_buku,
-            'judul_buku' => $request->judul_buku,
-            'pengarang' => $request->pengarang,
-            'penerbit' => $request->penerbit,
-            'tahun_terbit' => $request->tahun_terbit,
-            'bahasa' => $request->bahasa,
-            'halaman' => $request->halaman,
-            'ket_buku' => $request->ket_buku,
-            'tanggal_inventarisasi' => $request->tanggal_inventarisasi,
-        ];
-       
-
-        $databuku['foto_buku'] = $buku->foto_buku;
-
+        $buku = buku::findOrFail($id_buku);
+        // $buku->id_kualifikasi = $request->input('id_kualifikasi');
+        // $buku->id_museum = $request->input('id_museum');
+        $buku->kode_buku = $request->input('kode_buku');
+        $buku->judul_buku = $request->input('judul_buku');
+        $buku->pengarang = $request->input('pengarang');
+        $buku->penerbit = $request->input('penerbit');
+        $buku->tahun_terbit = $request->input('tahun_terbit');
+        $buku->bahasa = $request->input('bahasa');
+        $buku->halaman = $request->input('halaman');
+        $buku->ket = $request->input('ket');
+        $buku->tanggal_inventaris = $request->input('tanggal_inventaris');
+        $buku->foto_buku = $request->input('foto_buku');
         if ($request->hasFile('foto_buku')) {
-            $image = $request->file('foto_buku');
-            $ubah_nama_image = time() . '_' . 'buku' . '.' . $image->getClientOriginalExtension();
-            $image->move('foto_buku', $ubah_nama_image);
+            $file = $request->file('foto_buku');
+            
+            // Mengambil ekstensi file
+            $extension = $file->getClientOriginalExtension();
+            
+            // Membuat nama unik untuk file
+            $fileName = time().'.'.$extension;
+            
+            // Menyimpan file ke folder yang ditentukan (misalnya public/uploads)
+            $file->storeAs('public/uploads', $fileName);
 
-            $buku->move('foto_buku', $ubah_nama_image);
-
+            $buku->foto_buku = $fileName;
         }
+
         $buku->update();
+        
 
         return response()->json([
             'status'=> 200,
-            'message'=>'Berhasil Update kategori'  ,
+            'message'=>'Berhasil Update buku' ,
         ]);
     }
-
 }

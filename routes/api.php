@@ -30,9 +30,10 @@ Route::put('/update-user{id_user}', [UserController::class, 'update']);
 //buku
 Route::get('/show-buku', [BukuController::class, 'show_buku']);
 Route::post('/add-buku', [BukuController::class, 'store_buku']);
-Route::delete('/delete-buku', [BukuController::class, 'destroy']);
-Route::post('/edit-buku', [BukuController::class, 'edit_show']);
+Route::delete('/delete-buku/{id_buku}', [BukuController::class, 'destroy']);
+Route::post('/edit-buku/{id_buku}', [BukuController::class, 'edit_show']);
 Route::get('/show_detail_buku/{id_buku}', [BukuController::class, 'show_detail']);
+Route::put('/update-buku/{id_buku}', [BukuController::class, 'update']);
 
 //museum
 Route::get('/show-museum', [MuseumController::class, 'show_museum']);
@@ -71,7 +72,7 @@ Route::post('/edit-kartumuseum/{id_kartumuseum}', [KartuMuseumController::class,
 Route::get('/show_detail_kartumuseum/{id_kartumuseum}', [KartuMuseumController::class, 'show_detail']);
 
 //kartu inventaris
-Route::post('/add-kartuinventaris', [KartuInvController::class, 'store']);
+Route::post('/add-kartuinventaris', [KartuInvController::class, 'store_keris']);
 Route::get('/show-kartuinventaris', [KartuInvController::class, 'show']);
 Route::delete('/delete-kartuinventaris/{id_kartuinventaris}', [KartuInvController::class, 'destroy']);
 Route::post('/edit-kartuinventaris/{id_kartuinventaris}', [KartuInvController::class, 'edit_show']);

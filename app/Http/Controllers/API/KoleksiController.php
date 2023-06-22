@@ -4,27 +4,15 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Koleksi;
+use App\Models\koleksi;
 
 class KoleksiController extends Controller
 {
     public function store_keris(Request $request)
     {
 
-        $request->validate([
-            'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
-
-        if ($request->hasFile('foto')) {
-            $image = $request->file('foto');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/images', $imageName);
-            
-            // Simpan $imageName ke dalam kolom yang sesuai di database
-        }
-
-        $koleksi = new Koleksi;
-        $koleksi->id_koleksi = $request->input('id_koleksi');
+        $koleksi = new koleksi;
+        // $koleksi->id_koleksi = $request->input('id_koleksi');
         $koleksi->nama_koleksi = $request->input('nama_koleksi');
         $koleksi->dhapur = $request->input('dhapur');
         $koleksi->klasifikasi = $request->input('klasifikasi');
@@ -41,7 +29,7 @@ class KoleksiController extends Controller
         $koleksi->kondisi_koleksi = $request->input('kondisi_koleksi');
         $koleksi->sub_kondisi_koleksi = $request->input('sub_kondisi_koleksi');
         $koleksi->panjang = $request->input('panjang');
-        $koleksi->lebar_ganja = $request->input('lebar-ganja');
+        $koleksi->lebar_ganja = $request->input('lebar_ganja');
         $koleksi->tinggi = $request->input('tinggi');
         $koleksi->berat = $request->input('berat');
         $koleksi->karat = $request->input('karat');
@@ -51,7 +39,8 @@ class KoleksiController extends Controller
         $koleksi->foto = $request->input('foto');
         $koleksi->sumber_literasi= $request->input('sumber_literasi');
         $koleksi->pamor = $request->input('pamor');
-        $koleksi->warangka = $request->input('pendhok');
+        $koleksi->warangka = $request->input('warangka');
+        $koleksi->pendhok = $request->input('pendhok');
         $koleksi->mendhak = $request->input('mendhak');
         $koleksi->hibah_dari = $request->input('hibah_dari');
         $koleksi->hulu = $request->input('hulu');
