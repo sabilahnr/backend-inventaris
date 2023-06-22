@@ -8,7 +8,7 @@ use App\Models\koleksi;
 
 class KoleksiController extends Controller
 {
-    public function store_keris(Request $request)
+    public function store(Request $request)
     {
 
         $koleksi = new koleksi;
@@ -62,4 +62,102 @@ class KoleksiController extends Controller
             'koleksi'=>$koleksi,
         ]);
     }
+
+    public function show()
+    {
+        $koleksi = koleksi::all();
+        return response()->json([
+            'status' => 200,
+            'koleksi' => $koleksi,
+        ]);
+    }
+
+    public function destroy($id_koleksi)
+        {
+            $koleksi = koleksi::find($id_koleksi);
+    
+           
+            if($koleksi)
+            {
+                $koleksi->delete();
+                return response()->json([
+                    'status'=> 200,
+                    'message'=>'koleksi Berhasil Dihapus',
+                ]);
+            }
+            else
+            {
+                return response()->json([
+                    'status'=> 404,
+                    'message' => 'Tidak ada ID koleksi',
+                ]);
+            }
+        }
+    
+        public function edit_show($id_koleksi) 
+        {
+            $koleksi = koleksi::find($id_koleksi);
+            
+            if($koleksi)
+            {
+                return response()->json([
+                    'status'=> 200,
+                    'koleksi' => $koleksi,
+                ]);
+            }
+            else
+            {
+                return response()->json([
+                    'status'=> 404,
+                    'message' => 'No koleksi Id Found',
+                ]);
+            }
+    
+        }
+
+        public function show_detail($id_koleksi) 
+        {
+            $koleksi = koleksi::find($id_koleksi);
+            
+            if($koleksi)
+            {
+                return response()->json([
+                    'status'=> 200,
+                    'koleksi' => $koleksi,
+                ]);
+            }
+            else
+            {
+                return response()->json([
+                    'status'=> 404,
+                    'message' => 'No koleksi Id Found',
+                ]);
+            }
+    
+        }
+
+    public function show_koleksi()
+    {
+        $koleksi = koleksi::all();
+        return response()->json([
+            'status'=> 200,
+            'koleksi'=>$koleksi,
+        ]);
+    }
+
+    public function update(Request $request,$id_koleksi)
+    {
+        
+        $koleksi = koleksi::find($id_koleksi);
+        $koleksi->lokasi = $request->input('lokasi');
+        $koleksi->lemari = $request->input('lemari');
+        $koleksi->kunci = $request->input('kunci');
+        $koleksi->update();
+
+        return response()->json([
+            'status'=> 200,
+            'message'=>'Berhasil Update koleksi'  ,
+        ]);
+    }
+
 }

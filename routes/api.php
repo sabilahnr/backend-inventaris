@@ -52,7 +52,11 @@ Route::post('/login', [AuthController::class, 'login']);
 
 //koleksi
 Route::get('/show-koleksi', [KoleksiController::class, 'index']);
-Route::post('/add-koleksi', [KoleksiController::class, 'store_keris']);
+Route::post('/add-koleksi', [KoleksiController::class, 'store']);
+Route::put('/update-koleksi/{id_koleksi}', [KoleksiController::class, 'update']);
+Route::delete('/delete-koleksi/{id_koleksi}', [KoleksiController::class, 'destroy']);
+Route::get('/edit-koleksi/{id_koleksi}', [KoleksiController::class, 'edit_show']);
+
 Route::post('/kol-kartu_inv', [KartuInvController::class, 'store_keris']);
 Route::post('/add-kartu_registrasi', [KartuRegistrasiController::class, 'store_keris']);
 
@@ -62,6 +66,7 @@ Route::get('/show-ruang', [RuangController::class, 'show_ruang']);
 Route::delete('/delete-ruang/{id_ruang}', [RuangController::class, 'destroy']);
 Route::post('/edit-ruang/{id_ruang}', [RuangController::class, 'edit_show']);
 Route::get('/show_detail_ruang/{id_ruang}', [RuangController::class, 'show_detail']);
+Route::put('/update-ruang/{id_ruang}', [RuangController::class, 'update']);
 
 //kartu museum
 Route::post('/add-kartumuseum', [KartuMuseumController::class, 'store']);
