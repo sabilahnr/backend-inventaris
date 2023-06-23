@@ -36,6 +36,7 @@ Route::delete('/delete-buku/{id_buku}', [BukuController::class, 'destroy']);
 Route::post('/edit-buku/{id_buku}', [BukuController::class, 'edit_show']);
 Route::get('/show_detail_buku/{id_buku}', [BukuController::class, 'show_detail']);
 Route::put('/update-buku/{id_buku}', [BukuController::class, 'update']);
+Route::get('/bukuExport', [BukuController::class, 'BukuExport']);
 
 //museum
 Route::get('/show-museum', [MuseumController::class, 'show_museum']);

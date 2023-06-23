@@ -5,77 +5,16 @@ namespace App\Http\Controllers\API;
 use App\Models\Buku;
 use App\Models\kualifikasi;
 use App\Models\museum;
+use App\Exports\BukuExport;
+
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
 class BukuController extends Controller
 {
-    // public function store_buku(Request $request)
-    // {
-    //     // Validasi data yang diterima
-    //     $request->validate([
-    //         'foto_buku' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048' // Menyatakan bahwa `foto` harus berupa file gambar dengan format yang diizinkan dan ukuran maksimal 2MB
-    //     ]);
-
-    //     $foto_buku = $request->file('foto_buku');
-    //     $fotoName = time() . '_' . $foto_buku->getClientOriginalName();
-    //     $foto_buku->move(public_path('images'), $fotoName);
-
-    //     // Melakukan operasi lainnya dengan data dan foto yang diterima 
-    //     $id_kualifikasi = $request->input('id_kualifikasi');
-    //     $id_museum = $request->input('id_museum');
-    //     $kode_buku = $request->input('kode_buku');
-    //     $judul_buku = $request->input('judul_buku');
-    //     $pengarang = $request->input('pengarang');
-    //     $penerbit = $request->input('penerbit');
-    //     $tahun_terbit = $request->input('tahun_terbit');
-    //     $bahasa = $request->input('bahasa');
-    //     $halaman = $request->input('halaman');
-    //     $ket = $request->input('ket');
-    //     $tanggal_inventaris = $request->input('tanggal_inventaris');
-    //     $foto_buku = $request->input('foto_buku');
-
-    //     // Menyimpan data ke dalam database
-    //     $buku = new buku();
-    //         $buku->id_kualifikasi = $id_kualifikasi;
-    //         $buku->id_museum = $id_museum;
-    //         $buku->kode_buku = $kode_buku;
-    //         $buku->judul_buku = $judul_buku;
-    //         $buku->pengarang = $pengarang;
-    //         $buku->penerbit = $penerbit;
-    //         $buku->tahun_terbit = $tahun_terbit;
-    //         $buku->bahasa = $bahasa;
-    //         $buku->halaman = $halaman;
-    //         $buku->ket = $ket;
-    //         $buku->tanggal_inventaris = $tanggal_inventaris;
-    //         $buku->foto_buku = $foto_buku;
-
-    //         // Menyimpan data ke dalam database
-    //         // $buku = new buku;
-    //         // $buku->id_kualifikasi = $request->input('id_kualifikasi');
-    //         // $buku->id_museum = $request->input('id_museum');
-    //         // $buku->kode_buku = $request->input('kode_buku');
-    //         // $buku->judul_buku = $request->input('judul_buku');
-    //         // $buku->pengarang = $request->input('pengarang');
-    //         // $buku->penerbit = $request->input('penerbit');
-    //         // $buku->tahun_terbit = $request->input('tahun_terbit');
-    //         // $buku->bahasa = $request->input('bahasa');
-    //         // $buku->halaman = $request->input('halaman');
-    //         // $buku->ket = $request->input('ket');
-    //         // $buku->tanggal_inventaris = $request->input('tanggal_inventaris');
-    //         // $buku->foto_buku = $request->input('foto_buku');
-
-    //         // Mengembalikan response sukses
-    //         $buku->save();
-    //         return response()->json([ 
-    //         'status'=> 200,
-    //         'message'=> 'Buku sukses ditambahkan',
-    //     ]);
-            
-
-        // }
-
+    
         public function store_buku(Request $request)
     {
          // Validasi data yang diterima
@@ -269,5 +208,13 @@ class BukuController extends Controller
             'status'=> 200,
             'message'=>'Berhasil Update buku' ,
         ]);
+    }
+
+    public function BukuExport()
+    {
+        
+
+        return Excel::download(new BukuExport, 'buku.xlsx');
+       
     }
 }
