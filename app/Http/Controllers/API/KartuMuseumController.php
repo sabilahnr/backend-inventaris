@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\kartu_museum;
 
+use App\Exports\kartumuseumExport;
+
+use Maatwebsite\Excel\Facades\Excel;
+
 class KartuMuseumController extends Controller
 {
     public function store_keris(Request $request)
@@ -120,5 +124,11 @@ class KartuMuseumController extends Controller
             'message'=>'Berhasil Update kartu museum'  ,
         ]);
     }
+
+    public function kartumuseumExport()
+    {
+        return Excel::download(new kartumuseumExport, 'kartumuseum.xlsx');
+    }
+
 }
 

@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\kartu_registrasi;
 
+use App\Exports\karturegistrasiExport;
+
+use Maatwebsite\Excel\Facades\Excel;
+
 class KartuRegistrasiController extends Controller
 {
     public function store_keris(Request $request)
@@ -133,6 +137,11 @@ class KartuRegistrasiController extends Controller
             'status'=> 200,
             'message'=>'Berhasil Update kartu_registrasi'  ,
         ]);
+    }
+
+    public function karturegistrasiExport()
+    {
+        return Excel::download(new karturegistrasiExport, 'karturegistrasi.xlsx');
     }
 
 }

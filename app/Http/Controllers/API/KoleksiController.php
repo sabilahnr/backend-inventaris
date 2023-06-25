@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\koleksi;
 
+use App\Exports\KoleksiExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class KoleksiController extends Controller
 {
     public function store(Request $request)
@@ -158,6 +161,11 @@ class KoleksiController extends Controller
             'status'=> 200,
             'message'=>'Berhasil Update koleksi'  ,
         ]);
+    }
+
+    public function koleksiExport()
+    {
+        return Excel::download(new koleksiExport, 'koleksi.xlsx');
     }
 
 }

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\API;
 use App\Models\koleksi;
 use App\Models\buku;
+
+use App\Exports\kartuinventarisExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\kartu_inv;
@@ -245,5 +249,11 @@ class KartuInvController extends Controller
             'message'=> 'Kartu Inventaris sukses ditambahkan',
         ]);
     }
+
+    public function kartuinventarisExport()
+    {
+        return Excel::download(new kartuinventarisExport, 'kartuinventaris.xlsx');
+    }
+
 
 }

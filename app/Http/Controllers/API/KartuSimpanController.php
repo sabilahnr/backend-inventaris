@@ -5,6 +5,9 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\kartu_simpan;
+use App\Exports\kartusimpanExport;
+
+use Maatwebsite\Excel\Facades\Excel;
 
 class KartuSimpanController extends Controller
 {
@@ -131,4 +134,10 @@ class KartuSimpanController extends Controller
             'message'=>'Berhasil Update kartu_simpan'  ,
         ]);
     }
+
+    public function kartusimpanExport()
+    {
+        return Excel::download(new kartusimpanExport, 'kartusimpan.xlsx');
+    }
+
 }
